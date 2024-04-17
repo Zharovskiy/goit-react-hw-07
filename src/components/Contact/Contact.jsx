@@ -1,4 +1,4 @@
-import { deleteContact } from "../../redux/contactsSlice.js";
+import { deleteContact } from "../../redux/contactsOps";
 import { useDispatch } from "react-redux";
 
 import { RiContactsLine } from "react-icons/ri";
@@ -10,9 +10,7 @@ import css from "./Contact.module.css";
 const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
-  const onDeleteContact = (contactId) => {
-    dispatch(deleteContact(contactId));
-  };
+  const onDeleteContact = () => dispatch(deleteContact(id));
 
   return (
     <>
@@ -26,7 +24,7 @@ const Contact = ({ id, name, number }) => {
           {number}
         </p>
       </div>
-      <button onClick={() => onDeleteContact(id)} className={css.removeBtn}>
+      <button onClick={onDeleteContact} className={css.removeBtn}>
         <GoTrash className={css.removeIcon} />
       </button>
     </>
