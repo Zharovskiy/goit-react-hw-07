@@ -9,6 +9,7 @@ import {
 
 import ContactForm from "./components/ContactForm/ContactForm.jsx";
 import SearchBox from "./components/SearchBox/SearchBox.jsx";
+import Loader from "./components/Loader/Loader.jsx";
 import ContactList from "./components/ContactList/ContactList.jsx";
 
 import css from "./App.module.css";
@@ -28,7 +29,7 @@ const App = () => {
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      {loading && <b>Request in progress...</b>}
+      <Loader loading={loading} />
       {contacts.length !== 0 ? (
         <ContactList />
       ) : (
